@@ -19,3 +19,13 @@ def test_sub_resta_positivos():
 #   - Restar dos números decimales (float)
 #
 # Pista: podés usar @pytest.mark.parametrize para probar varios casos a la vez.
+
+@pytest.mark.parametrize("a, b, expected", [
+    (2, 5, -3),        # Restar un número mayor al primero (resultado negativo)
+    (10, 0, 10),       # Restar cero
+    (-5, -3, -2),      # Restar dos números negativos
+    (10.5, 0.5, 10.0)  # Restar dos números decimales (float)
+])
+def test_sub_parametrizado(a, b, expected):
+    """Prueba múltiples casos de resta usando parametrización."""
+    assert sub(a, b) == expected
